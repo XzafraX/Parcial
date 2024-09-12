@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CuritasEPS</title>
+    <style>
+        /* Estilos básicos */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0a75cd; /* Fondo azul */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+        }
+        .container {
+            background-color: #f5f5dc; /* Color beige */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px; /* Ancho del contenedor */
+        }
+        .container img {
+            max-width: 100%; /* Asegura que la imagen del logo se ajuste al contenedor */
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .container button {
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .container button:hover {
+            background-color: #0056b3;
+        }
+        .container a {
+            display: block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenedor para los botones -->
+    <div class="container">
+        <!-- Imagen del logo centrada -->
+        <img src="../Img/Logo.jpeg" alt="CuritasEPS Logo">
+        <h1>Seleccione su área</h1>
+        
+        <!-- Botones de inicio de sesión -->
+        <button onclick="window.location.href='logad.html'">Login Administrativo</button>
+        <button onclick="window.location.href='login.html'">Login Usuarios</button>
+
+        <!-- Enlace para regresar al inicio -->
+        <a href="../index.html">Regresar al inicio</a>
+    </div>
+</body>
+</html>

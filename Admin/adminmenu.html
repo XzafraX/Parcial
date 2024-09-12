@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CuritasEPS</title>
+    <style>
+        /* Estilos básicos */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        /* Estilos del contenedor header */
+        .header {
+            display: flex;
+            align-items: center;
+            background-color: #fdae47;
+            color: #fff;
+            padding: 10px 20px;
+        }
+        .header .header-text {
+            color: #fff;
+            font-family: 'Arial Narrow Bold';
+            font-size: 31px; /* Tamaño del texto a la izquierda del menú */
+            margin-right: auto; /* Asegura que el texto esté alineado a la izquierda del menú */
+        }
+        .header nav {
+            display: flex;
+            gap: 20px;
+        }
+        .header a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .header a:hover {
+            text-decoration: underline;
+        }
+        /* Estilos para el contenedor beige y los botones */
+        .button-container {
+            background-color: #f5f5dc; /* Color beige */
+            height: 500px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .button-container button {
+            background-color: #fdae47;
+            color: #fff;
+            border: none;
+            padding: 25px 30px; /* Aumento del tamaño del botón */
+            margin: 10px;
+            font-size: 18px; /* Aumento del tamaño del texto del botón */
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button-container button:hover {
+            background-color: #f29f32;
+        }
+        /* Estilos para el pie de página */
+        .footer {
+            background-color: #fff;
+            color: #333;
+            text-align: center;
+            padding: 10px 20px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenedor del header -->
+    <div class="header">
+        <!-- Texto a la izquierda del menú -->
+        <div class="header-text">Curitas EPS - Administrador</div>
+        <!-- Menú de navegación -->
+        <nav>
+            <a href="../Acceso/logad.html">Cerrar sesion</a>
+        </nav>
+    </div>
+
+    <!-- Contenedor para los botones -->
+    <div class="button-container">
+        <button onclick="window.location.href='Registrar.html'">Crear usuarios</button>
+        <button onclick="window.location.href='useredit.jsp'">Ver Usuarios</button>
+        <button onclick="window.location.href='../Medico/medicadd.html'">Crear Médicos</button>
+        <button onclick="window.location.href='../Medico/medicos.jsp'">Ver Medicos</button>
+    </div>
+
+    <!-- Pie de página -->
+    <div class="footer">
+        &copy; 2024 CuritasEPS. Todos los derechos reservados.
+    </div>
+</body>
+</html>
