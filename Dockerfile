@@ -1,5 +1,5 @@
 # Usa una imagen base de Tomcat
-FROM tomcat:9.0-jdk22
+FROM tomcat:9.0-jdk17
 
 # Copia el archivo .war a la carpeta webapps de Tomcat
 COPY Parcial.war /usr/local/tomcat/webapps
