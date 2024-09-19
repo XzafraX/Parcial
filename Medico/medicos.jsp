@@ -152,6 +152,8 @@ rs=sentencia.executeQuery(consultaSQL);
     <td class="actions">
     <a href="Eliminar_Medico.jsp?Ced_Medico=<%= rs.getString("Ced_Medico") %>">
         <button>Eliminar</button>
+         <a href="medicoEdit.jsp?Ced_Medico=<%= rs.getString("Ced_Medico") %>">
+        <button>Editar</button>
     </a>
     </td>
     </tr> 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Cita con Médico General</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0270ca; /* Color de fondo beige */
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #0270ca;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="date"],
+        input[type="time"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Solicitar Cita con Médico General</h1>
+        <form action="CitaG.jsp" method="POST">
+            <label for="fecha">Selecciona la fecha:</label>
+            <input type="date" id="fecha" name="fecha" required>
+            
+            <label for="hora">Selecciona el horario:</label>
+            <input type="time" id="hora" name="hora" required>
+            
+            <label for="medico">Selecciona el médico general:</label>
+            <select id="medico" name="medico" >
+                <!-- Las opciones serán llenadas por JavaScript -->
+            </select>
+            
+            <!-- Martes 17. Se añadió una alerta al ser clickeado el botón informando el correcto registro de la solicitud. -->
+            <button type="submit" onclick="alert('Solicitud registrada con exito.')">Solicitar Cita</button>
+        </form>
+        <br>
+        <center><a href="../Paciente/usermenu.html">Cancelar</a></center>
+    </div>
+
+</body>
+</html>

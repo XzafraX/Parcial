@@ -45,6 +45,15 @@ pageEncoding="UTF-8"%>
             background-color: #007bff;
             color: white;
         }
+        button.edit-btn {
+    padding: 8px 12px;
+    background-color: #28a745; /* Verde para editar */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
         button {
             padding: 5px 10px;
             margin: 2px;
@@ -53,18 +62,10 @@ pageEncoding="UTF-8"%>
             color: white;
             cursor: pointer;
         }
-        .edit-btn {
-            background-color: #28a745;
-        }
-        .delete-btn {
-            background-color: #dc3545;
-        }
-        .edit-btn:hover {
-            background-color: #218838;
-        }
-        .delete-btn:hover {
-            background-color: #c82333;
-        }
+        a.delete-btn:hover, a.edit-btn:hover {
+    opacity: 0.9;
+}
+
     </style>
 </head>
 <body>
@@ -137,8 +138,9 @@ try {conexion.close();} catch (SQLException e)
             <tbody id="userTableBody">
             </tbody>
         </table>
-        <a href="Registrar.html">Registrar Nuevo Usuario</a>
+        <a href="Registrar.html" ></a>
+        <button class ="edit-btn">Registrar Nuevo Usuario</button>
         <br>
-        <center><a href="adminmenu.html">Regresar</a></center>
+        <center><a href="adminmenu.html" style="color: red">Regresar</a></center>
     </div>
-                    </body></html>
+</body></html>

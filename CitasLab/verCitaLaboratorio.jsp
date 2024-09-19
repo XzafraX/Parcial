@@ -45,6 +45,32 @@ pageEncoding="UTF-8"%>
             background-color: #0270ca;
             color: #fff;
         }
+      a.delete-btn {
+    padding: 8px 12px;
+    background-color: #dc3545; /* Rojo para eliminar */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+a.edit-btn {
+    padding: 8px 12px;
+    background-color: #28a745; /* Verde para editar */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+a.delete-btn:hover, a.edit-btn:hover {
+    opacity: 0.9;
+}
+
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
@@ -106,9 +132,12 @@ pageEncoding="UTF-8"%>
                         <td><%= rs.getString("Fecha_CLab") %></td>
                         <td><%= rs.getString("Descripcion_Lab") %></td>
                         <td class="actions">
-                            <a href="Eliminar_Cita.jsp?ID_Lab=<%= rs.getString("ID_Lab") %>">
-                                <button>Eliminar</button>
-                            </a>
+                      <a class="delete-btn" href="Eliminar_Cita.jsp?ID_Lab=<%= rs.getString("ID_Lab") %>">
+        Eliminar
+    </a>
+    <a class="edit-btn" href="editarCitasLab.jsp?ID_Lab=<%= rs.getString("ID_Lab") %>">
+        Editar
+    </a>
                         </td>
                     </tr>
                 <% } %>

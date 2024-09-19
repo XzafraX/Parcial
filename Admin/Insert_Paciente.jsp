@@ -34,7 +34,7 @@
 
         // Redirigir a otra página solo si se insertaron filas
         if (filas > 0) {
-            response.sendRedirect("Exito.jsp?Ced_Paciente=" + Ced_Paciente);
+            response.sendRedirect("useredit.jsp");
         } else {
             out.println("<p>No se pudo insertar el paciente.</p>");
         }

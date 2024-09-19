@@ -82,12 +82,8 @@
     </style>
 </head>
 <body>
-    <%
-        String Ced_Paciente = (String) session.getAttribute("Ced_Paciente");
-        if (Ced_Paciente == null) {
-            response.sendRedirect("../Acceso/login.html");
-            return;
-        }
+  <%
+        String Ced_Medico = (String) request.getParameter("Ced_Medico");
 
         Connection conexion = null;
         Statement sentencia = null;
@@ -97,13 +93,13 @@
             conexion = DriverManager.getConnection(
                 "jdbc:postgresql://localhost:5433/Hospital", "postgres", "password");
             sentencia = conexion.createStatement();
-            String consultaSQL = "SELECT Ced_Paciente, Nom_Paciente, Email_Paciente, Tel_Paciente, Ciudad, Dir_Paciente, Estado_C FROM Paciente WHERE Ced_Paciente = '" + Ced_Paciente + "'";
+            String consultaSQL = "SELECT Ced_Medico, Nom_Medico, Email_Medico, Tel_Medico, Categoria, Pswd_Medico FROM Medico WHERE Ced_Medico = '" + Ced_Medico + "'";
             rs = sentencia.executeQuery(consultaSQL);
             if (rs.next()) {
     %>
     <div class="container">
-        <h1>Ver y Editar Datos</h1>
-        <form action="ActuUs.jsp" method="post">
+        <h1>Ver y Editar Datos de Medico</h1>
+        <form action="EditarMedico.jsp" method="post">
             <table>
                 <thead>
                     <tr>
@@ -114,58 +110,54 @@
                 <tbody>
                     <tr>
                         <td>Nombre Completo</td>
-                        <td><input type="text" name="nombre" value="<%= rs.getString("Nom_Paciente") %>" disabled></td>
+                        <td><input type="text" name="nombre" value="<%= rs.getString("Nom_Medico") %>" disabled></td>
+                    
                     </tr>
                     <tr>
                         <td>Cédula</td>
-                        <td><input type="text" name="cedula" value="<%= rs.getString("Ced_Paciente") %>" disabled></td>
+                        <td><input type="text" name="cedula" value="<%= rs.getString("Ced_Medico") %>" disabled></td>
+                        <input type="hidden" name="cedula" value="<%= rs.getString("Ced_Medico") %>">
+
                     </tr>
                     <tr>
                         <td>Número de Teléfono</td>
-                        <td><input type="tel" name="telefono" value="<%= rs.getString("Tel_Paciente") %>" required></td>
-                    </tr>
-                    <tr>
-                        <td>Ciudad</td>
-                        <td><input type="text" name="ciudad" value="<%= rs.getString("Ciudad") %>" required></td>
+                        <td><input type="text" name="telefono" value="<%= rs.getString("Tel_Medico") %>"></td>
                     </tr>
                     <tr>
                         <td>Correo Electrónico</td>
-                        <td><input type="text" name="correo" value="<%= rs.getString("Email_Paciente") %>" required></td>
+                        <td><input type="text" name="correo" value="<%= rs.getString("Email_Medico") %>"></td>
                     </tr>
-                    <tr>
-                        <td>Estado Civil</td>
+                      <tr>
+                        <td>Categoria</td>
                         <td>
-                            <select name="estadoCivil" required>
-                                <option value="soltero" <%= "soltero".equals(rs.getString("Estado_C")) ? "selected" : "" %>>Soltero</option>
-                                <option value="casado" <%= "casado".equals(rs.getString("Estado_C")) ? "selected" : "" %>>Casado</option>
-                                <option value="divorciado" <%= "divorciado".equals(rs.getString("Estado_C")) ? "selected" : "" %>>Divorciado</option>
-                                <option value="viudo" <%= "viudo".equals(rs.getString("Estado_C")) ? "selected" : "" %>>Viudo</option>
+                        
+                          <select name="categoria" required>
+                                <option value="Medico General" <%= "Medico General".equals(rs.getString("Categoria")) ? "selected" : "" %>>Medico General</option>
+                 <option value="Medico Laboratorio" <%= "Medico Laboratorio".equals(rs.getString("Categoria")) ? "selected" : "" %>>Medico Laboratorio</option>
                             </select>
-                        </td>
-                    </tr>
+                          </td>
+                     </tr>
                     <tr>
-                        <td>Dirección</td>
-                        <td><textarea name="direccion" rows="4" required><%= rs.getString("Dir_Paciente") %></textarea></td>
+                        <td>Contraseña</td>
+                        <td><input type="text" name="Pswd_Medico" value="<%= rs.getString("Pswd_Medico") %>"></td>
                     </tr>
                 </tbody>
             </table>
-            <button type="submit"onclick="alert('Información editada con exito.')">Guardar Cambios</button>
+            <!-- Martes 17. Se actualizó el botón, y ahora al darle click aparecerá una alerta en la zona superior que informa sobre la actualización exitosa de los datos -->
+            <button type="submit" onclick="alert('Información editada con exito.')">Guardar Cambios</button>
         </form>
-        <a href="usermenu.html">Cancelar</a>
+        <!-- Enlace para cancelar y volver a la página principal -->
+        <a href="../Medico/medicos.jsp">Cancelar</a>
     </div>
     <%
-            } else {
-                out.println("No se encontraron datos para el usuario.");
-            }
-        } catch (ClassNotFoundException e) {
-            out.println("Error en la carga del driver: " + e.getMessage());
-        } catch (SQLException e) {
-            out.println("Error accediendo a la base de datos: " + e.getMessage());
-        } finally {
-            if (rs != null) try { rs.close(); } catch (SQLException e) { out.println("Error cerrando ResultSet: " + e.getMessage()); }
-            if (sentencia != null) try { sentencia.close(); } catch (SQLException e) { out.println("Error cerrando Statement: " + e.getMessage()); }
-            if (conexion != null) try { conexion.close(); } catch (SQLException e) { out.println("Error cerrando Connection: " + e.getMessage()); }
-        }
-    %>
+} else {
+    out.println("No se encontraron datos para el usuario.");
+}
+} catch (ClassNotFoundException e) {
+out.println("Error en la carga del driver: " + e.getMessage());
+} catch (SQLException e) {
+out.println("Error accediendo a la base de datos: " + e.getMessage());
+} 
+%>
 </body>
 </html>

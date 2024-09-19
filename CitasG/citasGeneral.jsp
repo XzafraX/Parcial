@@ -72,7 +72,7 @@
             <label for="medico">Selecciona el médico general:</label>
             <select id="Ced_Medico" name="Ced_Medico" required>
                 <%
-                // Conexión a la base de datos para obtener los médicos generales
+                // Conexión a la base de datos
                 Connection conexion = null;
                 Statement sentencia = null;
                 ResultSet rs = null;
@@ -82,15 +82,13 @@
                     conexion = DriverManager.getConnection("jdbc:postgresql://localhost:5433/Hospital", "postgres", "password");
                     sentencia = conexion.createStatement();
 
-                    // Consulta SQL para obtener los médicos generales
                     String consultaSQL = "SELECT Ced_Medico, Nom_Medico FROM Medico WHERE Categoria = 'Medico General'";
                     rs = sentencia.executeQuery(consultaSQL);
 
-                    // Llenar el select con los médicos
+
                     while (rs.next()) {
                         String Ced_Medico = rs.getString("Ced_Medico");
                         String Nom_Medico = rs.getString("Nom_Medico");
-                        // Generar la opción con el ID y nombre del médico
                         out.println("<option value='" + Ced_Medico + "'>" + Nom_Medico + "</option>");
                     }
 
